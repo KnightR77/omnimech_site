@@ -526,7 +526,7 @@
   </style>
   <style>
     /* Larger top tabs and icon-only theme control. */
-    .navlinks{font-size:15px;font-weight:700;gap:34px}
+    .navlinks{font-size:15px;font-weight:700;gap:clamp(30px,2.5vw,46px)}
     .navpaper{font-size:14px}
     .theme-toggle{width:38px;height:38px;padding:0;display:grid;place-items:center;border-radius:50%;font-size:0}
     .theme-toggle span,.theme-toggle::before{display:none}
@@ -536,22 +536,29 @@
   </style>
   <style>
     /* Full-width translucent sticky header with content kept on the page grid. */
-    .nav{width:100%;max-width:none;padding-inline:max(24px,calc((100vw - 1180px)/2));margin:0;background:#071723b8;border-color:#2d596d99;box-shadow:0 1px 0 #3ee8ff12;backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15)}
+    .nav{width:100%;max-width:none;padding-inline:max(24px,calc((100vw - 1380px)/2));margin:0;gap:clamp(30px,3vw,54px);background:#071723b8;border-color:#2d596d99;box-shadow:0 1px 0 #3ee8ff12;backdrop-filter:blur(14px) saturate(1.15);-webkit-backdrop-filter:blur(14px) saturate(1.15)}
     body.bright .nav{background:#f3f9f8b8;border-color:#a9cbd199;box-shadow:0 1px 0 #087f9614}
     .navlinks a,.nav-actions a,.nav>.wordmark{white-space:nowrap}
-    @media(max-width:1250px){
-      .nav{height:auto;min-height:84px;display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;gap:12px 24px;padding-top:13px;padding-bottom:11px}
+    .navlinks{flex:1;justify-content:space-between}
+    .nav-actions{gap:clamp(18px,1.8vw,30px)}
+    @media(max-width:1400px){
+      .nav{height:auto;min-height:84px;display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:auto auto;gap:16px 28px;padding-top:15px;padding-bottom:13px}
       .nav>.wordmark{grid-column:1;grid-row:1}
       .nav-actions{grid-column:3;grid-row:1}
-      .navlinks{display:flex;grid-column:1/-1;grid-row:2;justify-content:center;gap:clamp(18px,4vw,46px);font-size:14px}
+      .navlinks{display:flex;grid-column:1/-1;grid-row:2;justify-content:space-between;gap:clamp(24px,4vw,54px);font-size:14px}
     }
     @media(max-width:700px){
-      .nav{grid-template-columns:1fr auto;padding-block:11px 9px;gap:10px 14px}
-      .nav-actions>a{display:none}
-      .navlinks{justify-content:flex-start;overflow-x:auto;gap:24px;padding-bottom:3px;scrollbar-width:none}
-      .navlinks::-webkit-scrollbar{display:none}
+      .nav{grid-template-columns:auto 1fr;padding-block:12px 10px;gap:13px 12px}
+      .nav-actions{grid-column:2;justify-self:end;gap:9px}
+      .nav-actions>a{display:inline-flex}
+      .theme-toggle{display:grid;width:32px;height:32px}
+      .nav>.wordmark{font-size:clamp(19px,5.5vw,24px)}
+      .nav-actions>a{font-size:clamp(10px,2.8vw,12px)}
+      .nav-actions .omnieda-link{padding:7px 8px}
+      .arxiv-id{display:none}
+      .navlinks{justify-content:center;flex-wrap:wrap;overflow:visible;column-gap:28px;row-gap:13px;padding-bottom:3px}
     }
-    @media(max-width:560px){.nav{padding-inline:14px}}
+    @media(max-width:560px){.nav{padding-inline:14px}.nav-actions{gap:6px}.navlinks{column-gap:24px;row-gap:12px}}
   </style>
   <style>
     /* Quantitative benchmark tables from Tables 2 and 3 of the paper. */
@@ -613,7 +620,7 @@
     .dataset-button:hover{background:#1a8fa4}
     body.bright .dataset-button{background:#12a0b9;color:#fff}
     body.bright .dataset-button:hover{background:#0b899f}
-    .omnieda-link{display:inline-flex;align-items:center;padding:8px 11px;border:1px solid #a5b4fc77;background:#a5b4fc18;color:#cdd4ff;font:800 10px "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase;transition:color .18s ease,background .18s ease,border-color .18s ease}
+    .omnieda-link{display:inline-flex;align-items:center;padding:8px 11px;border:1px solid #a5b4fc77;background:#a5b4fc18;color:#cdd4ff;font:800 15px "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase;transition:color .18s ease,background .18s ease,border-color .18s ease}
     .omnieda-link:hover{color:#fff;background:#a5b4fc30;border-color:#a5b4fcbb}
     body.bright .omnieda-link{color:#4f46a8;background:#eeefff;border-color:#818cf888}
     body.bright .omnieda-link:hover{color:#312e81;background:#e0e3ff;border-color:#6366f1}
@@ -626,7 +633,7 @@
   </style>
 </head>
 <body>
-  <nav class="nav shell"><a class="wordmark" href="#top">OmniMech</a><div class="navlinks"><a href="#showcase">3D Showcase</a><a href="#benchmark">Benchmark</a><a href="#tasks">Tasks</a><a href="#zeroshot-results">Zeroshot Results</a><a href="#agentic-results">Agentic Results</a><a href="#citation">Citation</a></div><div class="nav-actions"><a class="omnieda-link" href="https://www.omnieda.com/">OmniEDA ↗</a><button class="theme-toggle" type="button" aria-label="Switch to bright theme" aria-pressed="false"><span>Bright</span></button><a href="https://arxiv.org/abs/2608.05539">arXiv:2608.05539 ↗</a></div></nav>
+  <nav class="nav shell"><a class="wordmark" href="#top">OmniMech</a><div class="navlinks"><a href="#showcase">3D Showcase</a><a href="#benchmark">Benchmark</a><a href="#tasks">Tasks</a><a href="#zeroshot-results">Zeroshot Results</a><a href="#agentic-results">Agentic Results</a><a href="#citation">Citation</a></div><div class="nav-actions"><a class="omnieda-link" href="https://www.omnieda.com/">OmniEDA ↗</a><button class="theme-toggle" type="button" aria-label="Switch to bright theme" aria-pressed="false"><span>Bright</span></button><a href="https://arxiv.org/abs/2608.05539">arXiv<span class="arxiv-id">:2608.05539</span> ↗</a></div></nav>
   <main>
     <section class="hero shell" id="top"><div><h1>OmniMech</h1><h2>All-in-one Multimodal Mechanical Benchmark for 3D Reconstruction</h2><div class="actions"><a class="button" href="https://arxiv.org/pdf/2608.05539v1" download="omnimech-paper.pdf">Download paper ↓</a><a class="button dataset-button" href="./res/omnimech_samples.zip" download>Dataset Samples ↓</a><a class="button dataset-button" href="./res/omnimech_code.zip" download>Code ↓</a></div></div><div class="heroart"><img src="./public/media/overview.png" alt="Mechanical parts and reconstruction examples from OmniMech"><div class="badge b1">251K<small>paired models</small></div><div class="badge b2">28<small>views / model</small></div></div></section>
     <!-- <section class="statsband"><div class="shell stats"><div class="stat"><strong>251K</strong><span>drawing and<br>model pairs</span></div><div class="stat"><strong>15.62</strong><span>annotations<br>per drawing</span></div><div class="stat"><strong>28</strong><span>renders<br>per model</span></div><div class="stat"><strong>4</strong><span>evaluation<br>tasks</span></div></div></section> -->
